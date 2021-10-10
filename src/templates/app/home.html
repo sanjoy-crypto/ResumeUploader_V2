@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="row">
+        <div class="col-sm-8">
+            <form action="" method="post" novalidate class="shadow p-5" enctype="multipart/form-data">
+                {% if messages %}
+                {% for message in messages %}
+                <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5 text-center" {% endif %}>{{message}}
+                </p>
+                {% endfor %}
+                {% endif %}
+                {% csrf_token %}
+                {% for fm in form %}
+                <div class="form-group mb-3">
+                    <p class="mb-2">{{fm.label_tag}}</p> {{fm}} <small
+                        class="text-danger">{{fm.errors|striptags}}</small>
+                </div>
+                {% endfor %}
+
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-dark mb-3">Upload Resume</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <h3 class="text-center">Candidates List</h3>
+            <hr>
+            {% for cd in candidates %}
+            <a href="{% url 'candidate' cd.id %}">
+                <div class="card card-body mb-3">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="imgpart">
+                                <img src="{{cd.profile_image.url}}" alt="">
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <h5>{{cd.name}}</h5>
+                            <p>0{{cd.phone}}</p>
+                            <p>{{cd.email}}</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            {% endfor %}
+
+            <a href="{% url 'candidate_list' %}" class="btn-dark btn w-100">VIEW ALL</a>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

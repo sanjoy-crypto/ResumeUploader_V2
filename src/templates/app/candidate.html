@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<div class="container my-4">
+    <h2 class="text-center mb-3">Candidate</h2>
+
+    <div class="shadow p-5">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card card-body w-50">
+                    <h5 class="mb-3">Application ID : {{candidate.id}}</h5>
+                    <h5>{{candidate.name}}</h5>
+                    <p>Phone : 0{{candidate.phone}}</p>
+                    <p>Email : {{candidate.email}}</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+
+                <div class="float-right">
+
+                    <img src="{{candidate.profile_image.url}}" width="150px" height="150px" class="bg-light border"
+                        alt="">
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row my-5">
+            <div class="col-sm-8 offset-sm-2">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Date Of Birth : </th>
+                            <th>{{candidate.birth}}</th>
+                        </tr>
+                        <tr>
+                            <th>Gender : </th>
+                            <th>{{candidate.gender}}</th>
+                        </tr>
+                        <tr>
+                            <th>Work : </th>
+                            <th>{{candidate.work}}</th>
+                        </tr>
+                        <tr>
+                            <th>Education : </th>
+                            <th>{{candidate.education}}</th>
+                        </tr>
+                        <tr>
+                            <th>Experience : </th>
+                            <th>{{candidate.experience}}</th>
+                        </tr>
+                        <tr>
+                            <th>Locality : </th>
+                            <th>{{candidate.locality}}</th>
+                        </tr>
+                        <tr>
+                            <th>City : </th>
+                            <th>{{candidate.city}}</th>
+                        </tr>
+                        <tr>
+                            <th>Zip Code : </th>
+                            <th>{{candidate.zip}}</th>
+                        </tr>
+                        <tr>
+                            <th>Preferred Job Locations : </th>
+                            <th>{{candidate.job_city}}</th>
+                        </tr>
+                        <tr>
+                            <th>Download Resume/CV : </th>
+                            <th><a class="text-danger" href="{{candidate.my_file.url}}">Download Resume</a></th>
+                        </tr>
+                    </thead>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

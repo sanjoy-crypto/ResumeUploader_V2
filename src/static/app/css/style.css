@@ -1,0 +1,34 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+#id_gender, #id_job_city{
+    list-style-type: none;
+}
+#id_gender li, #id_job_city li {
+    display: inline;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+a,a:hover{
+    text-decoration: none !important;
+    color:black;
+}
+p{
+    margin-bottom: 0;
+}
+.imgpart{
+    width: 100%;
+    height: 100%;
+}
+.imgpart img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #f2f2f2;
+}
+.float-right{
+    float: right !important;
+}
